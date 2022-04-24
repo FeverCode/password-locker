@@ -1,6 +1,8 @@
 import random
 import string
 
+import pyperclip
+
 
 class User:
     '''
@@ -101,6 +103,16 @@ class Credentials():
         '''
         password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~#!@%&*"
         return ''.join(random.choice(password) for i in range(stringLength))
+    
+    @classmethod
+    def copy_credential(cls,username):
+        '''
+        Method that copies credential from a found credential
+        '''
+        credential_found = cls.find_by_username(username)
+        print("In the user.py", credential_found.password)
+        pyperclip.copy(credential_found.password)
+        
         
         
     

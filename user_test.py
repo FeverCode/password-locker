@@ -2,6 +2,7 @@ from cgi import test
 import unittest
 from user import User
 from user import Credentials
+import pyperclip
 
 class TestClass(unittest.TestCase):
     '''
@@ -117,6 +118,16 @@ class TestCresentials(unittest.TestCase):
         '''
         
         self.assertEqual(Credentials.display_crendtials(), Credentials.credentials_list)
+        
+    def test_copy_credential(self):
+        '''
+        Test to confirm that we are copying the credential from a found credentials
+        '''
+        self.new_credential.save_details()
+        Credentials.copy_password('GiddyLancs')
+        
+        self.assertEqual(self.new_credential.password, pyperclip.paste())
+        
            
 
 
