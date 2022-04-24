@@ -1,3 +1,4 @@
+from cgi import test
 import unittest
 from user import User
 from user import Credentials
@@ -25,6 +26,50 @@ class TestClass(unittest.TestCase):
         '''
         self.new_user.add_user()
         self.assertEqual(len(User.user_list),1)
+
+
+class TestCresentials(unittest.TestCase):
+    '''
+    Test case class for defining test cases for credentials
+    '''
+    
+    def setUp(self):
+        '''
+        Set up method to run before each test cases
+        '''
+        self.new_credential = Credentials('Space','GiddyLancs', '12345678')
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+        self.assertEqual(self.new_credential.account,'Space')
+        self.assertEqual(self.new_credential.user_name,'GiddyLancs')
+        self.assertEqual(self.new_credential.password,'12345678')
+        
+    def save_credential_test(self):
+        '''
+         test_save_credential test case to test if the contact object is saved into
+         the contact list
+        '''
+        self.new_credential.save_details()
+        self.assertEqual(len(Credentials.credentials_list),1)
+    
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        Credentials.credentials_list = []
+        
+        
+    def test_save_mutiple_credentials(self):
+        '''
+         test_save_multiple_credential to check if we can save multiple contact
+            objects to our contact_list
+        '''
+        self.new_credential.save_credential()
+        test_credential = Credentials('Test','TestUser' '123456789')
+        test_credential.save_details()
+        self.assertEqual(len(Credentials.credentials_list),2)
 
 
 if __name__ == '__main__':
