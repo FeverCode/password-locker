@@ -1,5 +1,4 @@
 import random
-import re
 import string
 
 
@@ -104,6 +103,7 @@ class Credentials():
         generate random password string of letters and special characters
         '''
         password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~#!@%&*"
+        return ''.join(random.choice(password) for i in range(stringLength))
         
         
     
