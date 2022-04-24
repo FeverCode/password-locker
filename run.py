@@ -3,7 +3,6 @@ from ast import While
 from enum import auto
 from json.tool import main
 
-from click import password_option
 from user import User
 from user import Credentials
 
@@ -131,7 +130,7 @@ def main():
             print('Account username')
             user_name = input()
             while True:
-                print('TYP - To type your own password:\n GEN - To generate random Password')
+                print('TYP - To type your own password if account exists:\n GEN - To generate random Password')
                 password_option = input().lower().strip()
                 if password_option == 'typ':
                     password = input('Enter preferred password\n')
@@ -184,10 +183,10 @@ def main():
                 print('Credential does not exist')
                 
                 
-        elif short_code == 'gp':
+        elif short_code == 'gen':
             
             password = generate_Password()
-            print(f'{password} has been generated successfully. Proceeding to login')
+            print(f'{password} has been generated successfully. Proceed to use it in your account')
         
         elif short_code == 'ext':
             print('You have successfully exited password locker')
