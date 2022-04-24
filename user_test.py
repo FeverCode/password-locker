@@ -98,6 +98,25 @@ class TestCresentials(unittest.TestCase):
         found_credential = Credentials.find_by_account('Space')
         
         self.assertEqual(found_credential.account,test_credential.account)
+        
+    def test_credential_exists(self):
+        '''
+        test to check if we can return a Boolean if we cannot find the credential.
+        '''
+        self.new_credential.save_details()
+        test_credential = Credentials('Test', 'TestUser', '123456789')
+        test_credential.saving_details()
+        
+        credential_exists = Credentials.credential_exist('12345678')
+        
+        self.assertTrue(credential_exists)
+        
+    def test_display_all_credentials(self):
+        '''
+        method that returns a list of all credentials saved
+        '''
+        
+        self.assertEqual(Credentials.display_crendtials(), Credentials.credentials_list)
            
 
 
