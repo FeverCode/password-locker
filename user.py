@@ -72,7 +72,7 @@ class Credentials():
         Credentials.credentials_list.remove(self)
         
     @classmethod
-    def check_credentials(cls,account):
+    def find_credential(cls,account):
         '''
         method that checks the credentials for validity
         '''
