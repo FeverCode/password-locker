@@ -1,4 +1,6 @@
-# from tabnanny import check
+import random
+import re
+import string
 
 
 from typing_extensions import Self
@@ -70,6 +72,33 @@ class Credentials():
         Method that deletes the credentials from the credentials store
         '''
         Credentials.credentials_list.remove(self)
+        
+    @classmethod
+    def check_credentials(cls,account):
+        '''
+        method that checks the credentials for validity
+        '''
+        for credential in cls.credentials_list:
+            if credential.account == account:
+                return credential
+    
+    @classmethod
+    def existing_credentials(cls,account):
+        '''
+        method that checks if the credentials exists for the account
+        '''
+        for credential in cls.credentials_list:
+            if credential.account == account:
+                return True
+            return False
+        
+    @classmethod
+    def show_credentials(cls):
+        '''
+        method to show all the credentials
+        '''
+        return cls.credentials_list
+        
         
     
             
