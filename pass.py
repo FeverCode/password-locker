@@ -58,6 +58,19 @@ class Credentials():
         self.user_name = user_name
         self.password = password
         
+        
+    def saving_details(self):
+        '''
+        method for saving new credentials to the credentials store
+        '''
+        Credentials.credentials_list.append(self)
+        
+    def delete_credentials(self):
+        '''
+        Method that deletes the credentials from the credentials store
+        '''
+        Credentials.credentials_list.remove(self)
+        
     
             
         
