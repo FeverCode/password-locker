@@ -98,6 +98,12 @@ class Credentials():
         method to show all the credentials
         '''
         return cls.credentials_list
+    
+    def generateRandomPassword(stringLength=10):
+        '''
+        generate random password string of letters and special characters
+        '''
+        password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~#!@%&*"
         
         
     
