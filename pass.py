@@ -1,6 +1,9 @@
 # from tabnanny import check
 
 
+from typing_extensions import Self
+
+
 class User:
     '''
     User class for generating new users
@@ -47,9 +50,14 @@ class Credentials():
                 check_user = user.username
             return check_user
     
-    def __init__(self,userName,password):
+    def __init__(self,account,user_name,password):
         '''
         method defining the use credentials to be stored 
         '''
+        self.account = account
+        self.user_name = user_name
+        self.password = password
+        
+    
             
         
