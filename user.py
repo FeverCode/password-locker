@@ -2,9 +2,6 @@ import random
 import string
 
 
-from typing_extensions import Self
-
-
 class User:
     '''
     User class for generating new users
