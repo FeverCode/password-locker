@@ -52,7 +52,7 @@ class Credentials():
     
     def __init__(self,account,user_name,password):
         '''
-        method defining the use credentials to be stored 
+        method defining the user credentials to be stored 
         '''
         self.account = account
         self.user_name = user_name
